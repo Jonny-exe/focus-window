@@ -13,10 +13,10 @@ Tested on Ubuntu 20.04.
 
 # Setup
 
-Download the focus-terminal.sh file and put where you want on your local disk.
-Install a window manager with `sudo apt install wmctrl`.
-Give that file permisions with `chmod 744 FilePath` Example: `chmod 744 $HOME/scripts/*sh`.
-Create a shortcut with the command `gnome-terminal -x FilePath` Example: `gnome-terminal -x /home/a/scripts/focus-terminal.sh`.
+  - Download the focus-terminal.sh file and put where you want on your local disk.
+  - Install a window manager with `sudo apt install wmctrl`.
+  - Give that file permisions with `chmod 744 FilePath` Example: `chmod 744 $HOME/scripts/*sh`.
+  - Create a shortcut with the command `gnome-terminal -x FilePath` Example: `gnome-terminal -x /home/a/scripts/focus-terminal.sh`.
 
 If you want to use another terminal instead of gnome-terminal it maybe work if you just reaplace the files 7th line wiht your preference terminal but I cant asure it will work. 
 
