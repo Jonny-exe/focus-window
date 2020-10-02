@@ -12,8 +12,50 @@ So, by hitting the F2 key, the terminal is brought to foreground (and is started
 Tested on Ubuntu 20.04.
 
 # Setup
+
 Download the focus-terminal.sh file and put where you want on your local disk.
 Install a window manager with `sudo apt install wmctrl`.
-Give that file permisions with `chmod 744 Pathfile` Example: `chmod 744 $HOME/scripts/*sh`.
+Give that file permisions with `chmod 744 FilePath` Example: `chmod 744 $HOME/scripts/*sh`.
+Create a shortcut with the command `gnome-terminal -x FilePath` Example: `gnome-terminal -x /home/a/scripts/focus-terminal.sh`.
+
+If you want to use another terminal instead of gnome-terminal it maybe work if you just reaplace the files 7th line wiht your preference terminal but I cant asure it will work. 
+
+Replace this
+
+```
+#!/bin/bash
+
+USER_AT_HOST="${USER}@${HOSTNAME}:"
+count=$(wmctrl -l | grep --count "$USER_AT_HOST")
+
+if [ "$count" == "0" ]; then
+    gnome-terminal
+else
+    hexid=$(wmctrl -l | grep  "$USER_AT_HOST" | head -n 1 | cut --delimiter " " -f 1)
+    wmctrl -i -R "$hexid"
+fi
+# EOF
+
+```
+with 
+```
+#!/bin/bash
+
+USER_AT_HOST="${USER}@${HOSTNAME}:"
+count=$(wmctrl -l | grep --count "$USER_AT_HOST")
+
+if [ "$count" == "0" ]; then
+    xterm
+else
+    hexid=$(wmctrl -l | grep  "$USER_AT_HOST" | head -n 1 | cut --delimiter " " -f 1)
+    wmctrl -i -R "$hexid"
+fi
+# EOF
+
+```
+
+I tried it with xterm and it worked, I have not tried any other terminal.
+
+# Enjoy it!
 
 
