@@ -2,7 +2,6 @@
 
 # read script ´focus-window.sh´ for explanations
 
-USER_AT_HOST="${USER}@${HOSTNAME}:"
-TITLE_PATTERN="$USER_AT_HOST"
-APP_NAME=gnome-terminal
+TITLE_PATTERN=" Atom"
+APP_NAME=atom
 focus-window.sh "$TITLE_PATTERN" "$APP_NAME"
