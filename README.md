@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/dukestreetstudio/zondicons/master/src/window-open.svg" align="left" height="150" />
+<img src="https://raw.githubusercontent.com/dukestreetstudio/zondicons/master/src/window-open.svg" height="150"></img><br>
 
 #
 
@@ -6,7 +6,7 @@
 
 A script that allows you to bring a given app to the foreground, i.e. to focus on it, with a single key.
 
-# show-terminal
+# show-terminal.sh
 
 Say, you are hacking away on a JavaScript in your Atom editor and want to run the script in the terminal.
 You are too lazy to hit Alt-Tab three times to get to the correct window. You just want to press , say, 
@@ -15,16 +15,17 @@ This is exactly what it does. And if no gnome-terminal exists at the moment the 
 start a terminal for you and bring it to the foreground. No more Alt-Tab-ing! Assign this script to any key 
 you like in ´Settings :arrow_right: Keyboard Shortcuts´ like so `gnome-terminal -e focus-terminal.sh`.
 
-# show-atom
+# show-atom.sh
 
 The `atom` editor is somewhere. Not sure if you opened it already. To tired of hitting Alt-Tab five times 
 to get to it. Assign the script `show-atom` to, say, key `F3` and with one keystroke you are done. `F3`, 
 voila, the atom editor is in front of you. Open and focused. Assign this script to any key 
 you like in ´Settings :arrow_right: Keyboard Shortcuts´ like so `gnome-terminal -e focus-atom.sh`.
 
-# show-firefox
+# show-firefox.sh
 
-You get it! Use `F4` to always have `Firefox` ready.  Assign this script to any key 
+You get it! Use `F4` or whatever you wish to always have `Firefox` ready with the touch of one button.  
+Assign this script to any key 
 you like in ´Settings :arrow_right: Keyboard Shortcuts´ like so `gnome-terminal -e focus-firefox.sh`.
 
 # What it does
