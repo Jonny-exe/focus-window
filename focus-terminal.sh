@@ -1,12 +1,8 @@
 #!/bin/bash
 
-USER_AT_HOST="${USER}@${HOSTNAME}:"
-count=$(wmctrl -l | grep --count "$USER_AT_HOST")
+# read script ´focus-window.sh´ for explanations
 
-if [ "$count" == "0" ]; then
-    gnome-terminal
-else
-    hexid=$(wmctrl -l | grep  "$USER_AT_HOST" | head -n 1 | cut --delimiter " " -f 1)
-    wmctrl -i -R "$hexid"
-fi
-# EOF
+USER_AT_HOST="${USER}@${HOSTNAME}:"
+TITLE_PATTERN="$USER_AT_HOST"
+APP_NAME=gnome-terminal
+focus-window.sh "$TITLE_PATTERN" "$APP_NAME"
