@@ -9,8 +9,8 @@
 # So, by hitting the F2 key, the desired app (e.g. terminal) is brought to foreground (and is started if necessary).
 # Tested on Ubuntu 20.04.
 
-# 
-# example output from `wmctrl --list` is as follows: 
+#
+# example output from `wmctrl --list` is as follows:
 # `gnome-terminal` is the window with title "someuser@somehost: ..."
 # $ wmctrl -l
 # 0x04800001  0 quiet someprogram.js  ~/Documents  Atom
@@ -31,7 +31,8 @@
 
 # argument 1: window title pattern
 # argument 2: app to start if needed
-main() {
+focus() {
+  echo "executing focus \"$1\" \"$2\""
   # list windows | count how many matching windows there are
   count=$(wmctrl -l | grep --count "$1")
 
@@ -47,4 +48,5 @@ main() {
 }
 
 # no error checking, sorry
-main "$1" "$2"
+echo "calling focus \"$1\" \"$2\""
+focus "$1" "$2"
