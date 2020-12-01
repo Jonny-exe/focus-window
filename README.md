@@ -51,7 +51,7 @@ Tested on Ubuntu 20.04.
 
 The scripts are very simple. Just 3 lines of code. You want it for app `foo`? 
 Create your own script. Run `wmctrl -l` to see what the window title pattern 
-of app `foo` is and put that into the script. Easy as pie!
+of app `foo` is and put that into the script. Easy as pie! :pie:
 
 # Enjoy it!
 
