@@ -29,24 +29,27 @@
 #    e.g. ´atom´ to start the Atom editor
 #    e.g. ´firefox´ to start a browser
 
+# DEBUG=TRUE
+
 # argument 1: window title pattern
 # argument 2: app to start if needed
 focus() {
-  echo "executing focus \"$1\" \"$2\""
-  # list windows | count how many matching windows there are
-  count=$(wmctrl -l | grep --count "$1")
+    if [ "${DEBUG,,}" == "true" ]; then echo "executing focus with arguments \"$1\" and \"$2\"." | tee -a "/tmp/$(basename $0).log"; fi
+    # list windows | count how many matching windows there are
+    count=$(wmctrl -l | grep --count "$1")
 
-  if [ "$count" == "0" ]; then
-    # no matching window exists, start the app
-    $2
-  else
-    # list windows | get matching window | get first line | get first field
-    hexid=$(wmctrl -l | grep  "$1" | head -n 1 | cut --delimiter " " -f 1)
-    # bring window to foreground, focus
-    wmctrl -i -R "$hexid"
-  fi
+    if [ "$count" == "0" ]; then
+        if [ "${DEBUG,,}" == "true" ]; then echo "No matching window exists, starting the app \"$2\"." | tee -a "/tmp/$(basename $0).log"; fi
+        $2
+    else
+        # list windows | get matching window | get first line | get first field
+        hexid=$(wmctrl -l | grep "$1" | head -n 1 | cut --delimiter " " -f 1)
+        if [ "${DEBUG,,}" == "true" ]; then echo "Window \"$1\" exists, bringing it to foreground." | tee -a "/tmp/$(basename $0).log"; fi
+        # bring window to foreground, focus
+        wmctrl -i -R "$hexid"
+    fi
 }
 
 # no error checking, sorry
-echo "calling focus \"$1\" \"$2\""
+if [ "${DEBUG,,}" == "true" ]; then echo "calling focus with arguments \"$1\" and \"$2\"." | tee -a "/tmp/$(basename $0).log"; fi
 focus "$1" "$2"
